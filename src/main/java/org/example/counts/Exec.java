@@ -42,11 +42,7 @@ public class Exec {
         if (sum > 0) {
             throw new IllegalStateException("Sorry, this amount cannot be given. It should be divided by 20, 50, 100, 200, 500");
         }
-//        System.out.println("Cash 20: " + cash20 +
-//                "\nCash 50: " + cash50 +
-//                "\nCash 100: " + cash100 +
-//                "\nCash 200: " + cash200 +
-//                "\nCash 500: " + cash500);
+
         res[0] = "Cash 20: " + cash20;
         res[1] = "Cash 50: " + cash50;
         res[2] = "Cash 100: " + cash100;
