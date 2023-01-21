@@ -1,5 +1,7 @@
 package org.example.counts;
 
+import org.example.check.CheckSum;
+
 public class Exec {
     public String[] execCount(int sum) {
         String[] res = new String[5];
@@ -9,14 +11,14 @@ public class Exec {
         int cash50 = 0;
         int cash20 = 0;
 
-        if (sum % 50 != 0 && sum % 20 != 0) {
+        if (CheckSum.checkIfSumDiv50HasRest(sum) && CheckSum.checkIfSumDiv20HasRest(sum)) {
             do {
                 cash20++;
                 sum -= 20;
-                if (sum < 20) {
+                if (CheckSum.checkIfSumIsLessThan20(sum)) {
                     throw new IllegalStateException("Sorry, this amount cannot be given. It should be divided by 20, 50, 100, 200, 500");
                 }
-            } while (sum % 50 != 0);
+            } while (CheckSum.checkIfSumDiv50HasRest(sum));
         }
 
         if (sum >= 500) {
@@ -39,7 +41,7 @@ public class Exec {
             cash20 = sum / 20;
             sum = sum % 20;
         }
-        if (sum > 0) {
+        if (CheckSum.checkIfSumIsGreaterThanZero(sum)) {
             throw new IllegalStateException("Sorry, this amount cannot be given. It should be divided by 20, 50, 100, 200, 500");
         }
 
